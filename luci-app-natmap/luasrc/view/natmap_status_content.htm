@@ -1,0 +1,56 @@
+<%
+
+local jsonc = require "luci.jsonc"
+local fs = require "nixio.fs"
+
+local ubus_output = luci.sys.exec("ubus call service list '{\"name\":\"natmap\"}'")
+local success, services = pcall(jsonc.parse, ubus_output or "")
+
+if not success or not services or not services.natmap or not services.natmap.instances or not next(services.natmap.instances) then
+%>
+    <div class="cbi-section-descr"><%:No running natmap instances. Please enable at least one instance in 'Settings' tab and 'Save & Apply'.%></div>
+<%
+    return
+end
+
+local running_instances = services.natmap.instances
+%>
+
+<table class="cbi-section-table">
+    <tr class="cbi-section-table-titles">
+        <th class="cbi-section-table-cell"><%:Configuration Name%></th>
+        <th class="cbi-section-table-cell"><%:Running Status%></th>
+        <th class="cbi-section-table-cell"><%:Public IP%></th>
+        <th class="cbi-section-table-cell"><%:Public Port%></th>
+    </tr>
+
+    <%
+    local i = 1
+    for section_name, _ in pairs(running_instances) do
+        local status_file = "/tmp/natmap_status/" .. section_name
+        local public_ip = "Getting..."
+        local public_port = "..."
+
+        if fs.access(status_file) then
+            local content = fs.readfile(status_file)
+            if content and content ~= "" then
+                local ip, port = content:match("([^:]+):([^:]+)")
+                public_ip = ip or "Unknown"
+                public_port = port or "Unknown"
+            end
+        end
+
+        local rowstyle = i % 2 == 1 and "cbi-rowstyle-1" or "cbi-rowstyle-2"
+        i = i + 1
+    %>
+    <tr class="cbi-section-table-row <%=rowstyle%>">
+        <td><strong><%=section_name%></strong></td>
+        <td><span style="color:green; font-weight:bold;">● <%:Running%></span></td>
+        <td><%=public_ip%></td>
+        <td><%=public_port%></td>
+    </tr>
+    <%
+    end
+    %>
+</table>
+<div class="cbi-section-descr"><%:Status information is reported by the natmap process and may have a slight delay.%></div>

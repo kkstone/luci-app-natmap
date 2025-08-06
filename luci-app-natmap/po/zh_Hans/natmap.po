@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-natmap\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Chinese\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "NATMap"
+msgstr "NATMap"
+
+msgid "NATMap is a port mapping tool for Fullcone-NAT (NAT-1)."
+msgstr "NATMap 是一个用于 Fullcone NAT (NAT-1) 的端口映射工具。"
+
+msgid "NATMap Instances"
+msgstr "NATMap 实例"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "IP Family"
+msgstr "IP 协议"
+
+msgid "Auto"
+msgstr "自动"
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "Network Interface (optional)"
+msgstr "网络接口 (可选)"
+
+msgid "Transport Protocol"
+msgstr "传输协议"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "UDP"
+msgstr "UDP"
+
+msgid "Local Bind Port"
+msgstr "本地绑定端口"
+
+msgid "STUN Server"
+msgstr "STUN 服务器"
+
+msgid "HTTP Keep-alive Server"
+msgstr "HTTP保活服务器"
+
+msgid "Keep-alive Interval (seconds)"
+msgstr "保活间隔 (秒)"
+
+msgid "Forward Target Address"
+msgstr "转发目标地址"
+
+msgid "Forward Target Port"
+msgstr "转发目标端口"
+
+msgid "Execute command on success (optional)"
+msgstr "成功后执行命令 (可选)"
+
+msgid "Custom script or command to execute after successful mapping. All parameters from the natmap program will be passed directly to this command."
+msgstr "映射成功后要执行的自定义脚本或命令。natmap 程序的所有参数将直接传递给此命令。"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Instance Running Status"
+msgstr "实例运行状态"
+
+msgid "No running natmap instances. Please enable at least one instance in 'Settings' tab and 'Save & Apply'."
+msgstr "没有正在运行的 natmap 实例。请在“设置”选项卡中启用至少一个实例并“保存并应用”。"
+
+msgid "Configuration Name"
+msgstr "配置名称"
+
+msgid "Running Status"
+msgstr "运行状态"
+
+msgid "Public IP"
+msgstr "公网 IP"
+
+msgid "Public Port"
+msgstr "公网端口"
+
+msgid "Getting..."
+msgstr "正在获取..."
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Running"
+msgstr "运行中"
+
+msgid "Status information is reported by the natmap process and may have a slight delay."
+msgstr "状态信息由 natmap 进程上报，可能会有少许延迟。"

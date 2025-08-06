@@ -1,0 +1,79 @@
+#!/bin/sh /etc/rc.common
+
+USE_PROCD=1
+START=99
+STOP=15
+
+NATMAP_BIN=/usr/bin/natmap
+STATUS_DIR=/tmp/natmap_status
+HANDLER_SCRIPT=/etc/natmap/notify.sh
+
+stop_service() {
+    rm -rf "$STATUS_DIR"
+}
+
+start_service() {
+    rm -rf "$STATUS_DIR"
+    mkdir -p "$STATUS_DIR"
+
+    config_load natmap
+    config_foreach start_instance instance
+}
+
+start_instance() {
+    local section="$1"
+
+    config_get_bool enabled "$section" enabled 0
+    [ "$enabled" -eq 1 ] || return 1
+
+    config_get ip_family "$section" ip_family
+    config_get interface "$section" interface
+    config_get protocol "$section" protocol 'tcp'
+    config_get bind_port "$section" bind_port
+    config_get stun_server "$section" stun_server
+    config_get http_server "$section" http_server
+    config_get keepalive_interval "$section" keepalive_interval
+    config_get forward_address "$section" forward_address
+    config_get forward_port "$section" forward_port
+
+    [ -n "$bind_port" ] && [ -n "$stun_server" ] && [ -n "$http_server" ] || return 1
+
+    procd_open_instance "$section"
+    procd_set_param env NATMAP_SECTION_NAME="$section"
+
+    procd_set_param command "$NATMAP_BIN"
+
+    if [ "$ip_family" = "4" ]; then
+        procd_append_param command "-4"
+    elif [ "$ip_family" = "6" ]; then
+        procd_append_param command "-6"
+    fi
+
+    if [ -n "$interface" ]; then
+        procd_append_param command "-i" "$interface"
+    fi
+
+    if [ "$protocol" = "udp" ]; then
+        procd_append_param command "-u"
+    fi
+
+    procd_append_param command "-b" "$bind_port"
+    procd_append_param command "-s" "$stun_server"
+    procd_append_param command "-h" "$http_server"
+
+    if [ -n "$keepalive_interval" ]; then
+        procd_append_param command "-k" "$keepalive_interval"
+    fi
+
+    procd_append_param command "-e" "$HANDLER_SCRIPT"
+
+    if [ "$forward_address" -a "$forward_port" ]; then
+        procd_append_param command "-t" "$forward_address"
+        procd_append_param command "-p" "$forward_port"
+    fi
+
+    procd_set_param respawn
+    procd_set_param stdout 1
+    procd_set_param stderr 1
+    procd_close_instance
+}

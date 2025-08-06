@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-natmap\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "NATMap"
+msgstr ""
+
+msgid "NATMap is a port mapping tool for Fullcone-NAT (NAT-1)."
+msgstr ""
+
+msgid "NATMap Instances"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "IP Family"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
+
+msgid "Network Interface (optional)"
+msgstr ""
+
+msgid "Transport Protocol"
+msgstr ""
+
+msgid "TCP"
+msgstr ""
+
+msgid "UDP"
+msgstr ""
+
+msgid "Local Bind Port"
+msgstr ""
+
+msgid "STUN Server"
+msgstr ""
+
+msgid "HTTP Keep-alive Server"
+msgstr ""
+
+msgid "Keep-alive Interval (seconds)"
+msgstr ""
+
+msgid "Forward Target Address"
+msgstr ""
+
+msgid "Forward Target Port"
+msgstr ""
+
+msgid "Execute command on success (optional)"
+msgstr ""
+
+msgid "Custom script or command to execute after successful mapping. All parameters from the natmap program will be passed directly to this command."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Instance Running Status"
+msgstr ""
+
+msgid "No running natmap instances. Please enable at least one instance in 'Settings' tab and 'Save & Apply'."
+msgstr ""
+
+msgid "Configuration Name"
+msgstr ""
+
+msgid "Running Status"
+msgstr ""
+
+msgid "Public IP"
+msgstr ""
+
+msgid "Public Port"
+msgstr ""
+
+msgid "Getting..."
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Status information is reported by the natmap process and may have a slight delay."
+msgstr ""
