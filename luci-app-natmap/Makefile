@@ -17,3 +17,5 @@ define Package/$(PKG_NAME)/conffiles
 endef
 
 include $(TOPDIR)/feeds/luci/luci.mk
+
+$(eval $(call BuildPackage,luci-app-natmap))
