@@ -1,7 +1,7 @@
 # LuCI App for NATMap (`luci-app-natmap`)
 
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![OpenWrt](https://img.shields.io/badge/OpenWrt-19.07%2B-blue.svg)](https://openwrt.org/)
+[![OpenWrt](https://img.shields.io/badge/OpenWrt-18.06%2B-blue.svg)](https://openwrt.org/)
 
 A LuCI web interface for the powerful `natmap` utility, allowing for easy configuration of Full-Cone NAT (NAT-1) port mapping directly from the OpenWrt web interface.
 
