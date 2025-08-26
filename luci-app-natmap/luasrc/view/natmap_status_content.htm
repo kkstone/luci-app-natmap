@@ -19,7 +19,6 @@ local running_instances = services.natmap.instances
 <table class="cbi-section-table">
     <tr class="cbi-section-table-titles">
         <th class="cbi-section-table-cell"><%:Configuration Name%></th>
-        <th class="cbi-section-table-cell"><%:Running Status%></th>
         <th class="cbi-section-table-cell"><%:Public IP%></th>
         <th class="cbi-section-table-cell"><%:Public Port%></th>
     </tr>
@@ -45,7 +44,6 @@ local running_instances = services.natmap.instances
     %>
     <tr class="cbi-section-table-row <%=rowstyle%>">
         <td><strong><%=section_name%></strong></td>
-        <td><span style="color:green; font-weight:bold;">● <%:Running%></span></td>
         <td><%=public_ip%></td>
         <td><%=public_port%></td>
     </tr>
